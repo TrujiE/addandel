@@ -14,7 +14,7 @@ class App extends React.Component{
     render(){
       return(
             <div className="container">
-              <h1>Agrega y Elimina </h1>
+              <h1>Todos </h1>
               <Contenido />
             </div>
         );
