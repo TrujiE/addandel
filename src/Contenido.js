@@ -46,8 +46,7 @@ class Contenido extends React.Component{
 	borrarItem(key){
 		//alert("borrar" + e + this.state.items);
 		const borraItem = this.state.items.filter(item => item.key!==key);
-		this.setState({items:borraItem
-		})
+		this.setState({items:borraItem})
 	}
 
 
