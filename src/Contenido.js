@@ -1,51 +1,72 @@
-import React, {useState} from "react";
+import React from "react";
 import ReactDOM from "react-dom";
-
-
+import ListaItem from "./ListaItem";
 
 
 class Contenido extends React.Component{
   constructor(props) {
     super(props);
-    this.state = {
-    	value: ""
-        }
-  	this.addItem = this.addItem.bind(this);
-  	this.cerrar = this.cerrar.bind(this);
-    //this.onClick = this.onClick.bind(this);
-    this.state.lista = ["Tareas", "ordenar", "limpiar", "lavar"];
-    this.state.armado_lista = this.state.lista.map((state) => <li>{state}<span className="close" onClick={this.cerrar}>x</span></li>);
-
-  }
-
-  	addItem = (e) => {
-  		this.state.guarda_ingreso=[this.state.value];
-  		this.state.agrega_ingreso= this.state.guarda_ingreso.map(() => <li>{this.state.value}<span className="close" onClick={this.cerrar}>x</span></li>);
-  		this.state.muestra_ingreso=[this.state.agrega_ingreso.concat()];
-  		this.setState({value: this.state.muestra_ingreso}); 
-  }
-
-	cerrar(){
-		//alert("borrar");
-
-		this.state.lista.splice(this.state.value, -1);
-		//const newList = this.state.list.splice(this.state.list.indexOf(value), 1);
+    this.state={
+		items: [],
+		currentItem:{
+			text:'',
+			key:''
+		}
 	}
+	this.handleInput = this.handleInput.bind(this);
+	this.addItem = this.addItem.bind(this);
+	this.borrarItem = this.borrarItem.bind(this);
+  }
+
+	handleInput(e){
+		this.setState({
+			currentItem:{
+				text: e.target.value,
+				key: Date.now()
+			}
+		})
+	}
+
+	addItem(e){
+		e.preventDefault();
+		const newItem = this.state.currentItem;
+		if(newItem.text!==""){
+			const newItems=[...this.state.items, newItem];
+			this.setState({
+				items: newItems, 
+				currentItem:{
+					text:'',
+					key:''	
+				}
+			})
+		}	
+
+	}
+
+	borrarItem(key){
+		//alert("borrar" + e + this.state.items);
+		const borraItem = this.state.items.filter(item => item.key!==key);
+		this.setState({items:borraItem
+		})
+	}
+
+
 	render(){
-		return(
-			<div className="container">
-              <input onChange={e => this.setState({value: e.target.value})}/> &nbsp; &nbsp;
-              <button onClick={this.addItem}> Agregar</button>            
-              <br />
-              <br />
-              <ul>
-              	{this.state.armado_lista}
-              	{this.state.value}
-              </ul>
-              <br />
-            </div>
-			);
-	}
+			return(
+				<div className="container">
+				  <form id="formulario" onSubmit={this.addItem}>
+	              <input type="text" placeholder="Ingrese su tarea" value={this.state.currentItem.text} onChange={this.handleInput}/> &nbsp; &nbsp;	                     
+	              <br />
+	              <br />
+	              </form>
+	              <ListaItem items={this.state.items} 
+	              borrarItem={this.borrarItem}> </ListaItem>
+	            </div>
+				);
+		}
+
+
+
 }
 
 

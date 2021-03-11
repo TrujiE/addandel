@@ -26,12 +26,12 @@
 ul {
   list-style-type: none;
   padding: 0;
-  margin: 0;
+  margin: 1;
 }
 
 ul li {
   border: 1px solid #ddd;
-  width: 430px;
+  width: 300px;
   margin-top: -1px;
   background-color: #f6f6f6;
   padding: 12px;
@@ -46,7 +46,7 @@ ul li:hover {
   background-color: #eee;
 }
 
-.close {
+.list p span{
   cursor: pointer;
   position: absolute;
   top: 50%;
@@ -55,11 +55,51 @@ ul li:hover {
   transform: translate(0%, -50%);
 }
 
-.close:hover {background: #bbb;}
+.list p{
+  position: relative;
+}
 
+
+.list p span:hover {background: #bbb;}
+
+#formulario input{ 
+  background-color:  white;
+  border: 1;
+  border-radius: 5px;
+  padding: 0 20px;
+  margin: 20px;
+  font-size: 20px;
+  color: black;
+
+}
+#formulario button{
+  background-color:  #f6f6f6;
+  border: 1;
+  border-radius: 5px;
+  cursor: pointer;
+}
 .App-link {
   color: #61dafb;
 }
+
+.list {
+  border: 1px solid #ddd;
+  width: 300px;
+  margin-top: -1px;
+  background-color: #f6f6f6;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  color: black;
+  display: block;
+  position: relative;
+}
+
+.list:hover {
+  background-color: #eee;
+}
+
+
 
 @keyframes App-logo-spin {
   from {
