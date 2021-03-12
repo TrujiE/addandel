@@ -10,7 +10,6 @@ function ListaItem(props){
 			<p> {item.text}
 			<span onClick={ () => props.borrarItem(item.key)}>X</span>
 			</p>
-
 		</div>
 
 	})

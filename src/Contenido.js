@@ -44,7 +44,7 @@ class Contenido extends React.Component{
 	}
 
 	borrarItem(key){
-		//alert("borrar" + e + this.state.items);
+		//alert("borrar" + key + this.state.items);
 		const borraItem = this.state.items.filter(item => item.key!==key);
 		this.setState({items:borraItem})
 	}
@@ -56,10 +56,10 @@ class Contenido extends React.Component{
 				  <form id="formulario" onSubmit={this.addItem}>
 	              <input type="text" placeholder="Ingrese su tarea" value={this.state.currentItem.text} onChange={this.handleInput}/> &nbsp; &nbsp;	                     
 	              <br />
-	              <br />
-	              </form>
 	              <ListaItem items={this.state.items} 
 	              borrarItem={this.borrarItem}> </ListaItem>
+	              <br />	              
+	              </form>
 	            </div>
 				);
 		}
