@@ -62,6 +62,22 @@ ul li:hover {
 
 .list p span:hover {background: #bbb;}
 
+.lista p span{
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  right: 0%;
+  padding: 12px 16px;
+  transform: translate(0%, -50%);
+}
+
+.lista p{
+  position: relative;
+}
+
+
+.lista p span:hover {background: #bbb;}
+
 #formulario input{ 
   background-color:  white;
   border: 1;
@@ -73,6 +89,22 @@ ul li:hover {
 
 }
 #formulario button{
+  background-color:  #f6f6f6;
+  border: 1;
+  border-radius: 5px;
+  cursor: pointer;
+}
+#formulario2 input{ 
+  background-color:  white;
+  border: 1;
+  border-radius: 5px;
+  padding: 0 20px;
+  margin: 20px;
+  font-size: 20px;
+  color: black;
+
+}
+#formulario2 button{
   background-color:  #f6f6f6;
   border: 1;
   border-radius: 5px;
@@ -99,6 +131,34 @@ ul li:hover {
   background-color: #eee;
 }
 
+
+
+.lista {
+  border: 1px solid #ddd;
+  width: 300px;
+  margin-top: -1px;
+  background-color: #f6f6f6;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  color: black;
+  display: block;
+  position: relative;
+}
+
+.lista:hover {
+  background-color: #eee;
+}
+
+
+.close{
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  right: 0%;
+  padding: 12px 16px;
+  transform: translate(0%, -50%);
+}
 
 
 @keyframes App-logo-spin {

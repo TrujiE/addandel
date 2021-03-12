@@ -63,9 +63,6 @@ class Contenido extends React.Component{
 	            </div>
 				);
 		}
-
-
-
 }
 
 
