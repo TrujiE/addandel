@@ -22,31 +22,34 @@ class Contenido extends React.Component{
 		this.setState({
 			currentItem:{
 				text: e.target.value,
-				key: Date.now()
+				key: Date.now()					//para que siempre la llave o indice vaya variando y no borre todo
 			}
 		})
+		//console.log("currentItem", this.state.currentItem);
 	}
 
 	addItem(e){
 		e.preventDefault();
-		const newItem = this.state.currentItem;
+		const newItem = this.state.currentItem;		//el ultimo item escrito
 		if(newItem.text!==""){
-			const newItems=[...this.state.items, newItem];
+			const newItems=[...this.state.items, newItem];  //destructuring para items  
 			this.setState({
-				items: newItems, 
+				items: newItems, 		//new items contiene todo lo ingresado
 				currentItem:{
 					text:'',
 					key:''	
 				}
 			})
+			//console.log("e", e);
+			//console.log("newItem y newItems",newItem, newItems);			
 		}	
 
 	}
 
 	borrarItem(key){
-		//alert("borrar" + key + this.state.items);
 		const borraItem = this.state.items.filter(item => item.key!==key);
 		this.setState({items:borraItem})
+		console.log("borraItem", borraItem);	
 	}
 
 
